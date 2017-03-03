@@ -143,7 +143,17 @@ p {
 .header-des{
 	font-size: 14px;
 }
-
+.header-img-wrapper{
+	float: left;
+	height: 100%;
+	
+}
+/*
+* I need a cat
+*/
+.i-need-a-cat{
+	padding: 20px;
+}
 /*
 * favorites music
 */
@@ -166,6 +176,19 @@ p {
 .song-grid .song-item:hover{
 	z-index: 100;
 	transform: scale(2,2) translate(25px,25px);
+}
+.song-item .song-name{
+	font-size: 9px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: black;
+    display: none;
+    line-height: 1.6em;
+}
+.song-item:hover .song-name{
+	display: block;
 }
 .netease-music-player{
 	float: left;
