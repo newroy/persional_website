@@ -1,6 +1,8 @@
 require 'rest-client'
 require 'json'
 
+MY_PLAYLIST_ID = 36552207
+
 module ApiModule
   #处理get请求的uri
   def self.parseGetUrl(url)
@@ -55,12 +57,26 @@ module ApiModule
   	result = parseGetUrl(url)
   end
 
-
+  def self.generateSongJson
+  	file = File.new('../data/static_data.json','w+')
+  	result = getPlaylistInfo(MY_PLAYLIST_ID)
+  	if result["code"] == 200
+      result = result["result"]
+      music_list = result["tracks"]
+      file.write("var my_favorite_song_list = ")
+      # file.write(JSON.pretty_generate(music_list))
+      file.write(JSON.pretty_generate(music_list))
+      file.write(";")
+  	else
+      puts "163 music API error"
+    end
+    file.close
+    puts "File closed"
+  end
 
 end
 
 
 
-# puts URI.escape('roy.zhu+1@icitymobile.com')
 # file = File.new('songs.json', 'w')
 
