@@ -81,7 +81,7 @@
 		<div class="content" id="myFavoriteMusic">
 			<div id="fav_song_gallery" class="song-grid"></div>
 			<div id="" class="music-player">
-				<iframe id="netease_music_player" class="netease-music-player" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=26306047&auto=0&height=66"></iframe>	
+				<iframe id="netease_music_player" class="netease-music-player" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="https://music.163.com/outchain/player?type=2&id=26306047&auto=0&height=66"></iframe>	
 			</div>
 		</div>
 	</div>
@@ -90,10 +90,12 @@
 	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="data/static_data.json"></script>
 	<script type="text/javascript">
+	
 	skrollr.init({
 		smoothScrolling: false,
 		mobileDeceleration: 0.004
 	});
+	var protocol = document.location.protocol;
 	function getMyFavSongList(){
 		$.getJSON("data/my_favorite_songs.json",function(song_list){
 			$.each(song_list, function(index, song){
@@ -116,7 +118,7 @@
 		if(song.album != undefined){
 			view += '<img class="" src="' + song.album.picUrl + '" />';
 		}else{
-			view += '<img class="" src="http://p3.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" />';
+			view += '<img class="" src="//p3.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" />';
 		}
 		view += '<p>' + song.name + '</p>';
 		view += '</div>';
@@ -129,7 +131,7 @@
 		return result.slice(0, 81);
 	}
 	function playMusic(item){
-		$('#netease_music_player').attr('src', 'http://music.163.com/outchain/player?type=2&id=' + $(item).data('music-id') + '&auto=1&height=66');
+		$('#netease_music_player').attr('src', 'https://music.163.com/outchain/player?type=2&id=' + $(item).data('music-id') + '&auto=1&height=66');
 	}
 
 	$(document).ready(function(){
